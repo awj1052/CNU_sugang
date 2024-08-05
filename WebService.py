@@ -10,9 +10,9 @@ import account
 def get_driver():
     chrome_options = Options()
     chrome_options.add_argument("--window-size=1920,1080")
-    #chrome_options.add_argument("--headless")
-    #chrome_service = webdriver.ChromeService('/usr/lib/chromium-browser/chromedriver')
-    driver = webdriver.Chrome(options=chrome_options)#, service=chrome_service)
+    chrome_options.add_argument("--headless")
+    chrome_service = webdriver.ChromeService('/usr/lib/chromium-browser/chromedriver')
+    driver = webdriver.Chrome(options=chrome_options, service=chrome_service)
     return driver
 
 def init(driver):
