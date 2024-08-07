@@ -29,18 +29,23 @@ def init(driver):
 def sugang(driver):
 
     buttons = driver.find_elements(By.LINK_TEXT, '확정하기')
-    if len(buttons) == 0:
+    if len(buttons) == 1:
         exit()
     for index, value in enumerate(buttons):
+        if index == 0: continue
         value.click()
         time.sleep(0.5)
 
-        alert = Alert(driver)
-        alert_text = alert.text
-        alert.accept()
+        try:
+            alert = Alert(driver)
+            alert_text = alert.text
+            alert.accept()
+        except:
+            time.sleep(5)
+
         time.sleep(0.5)        
 
-        if '수강신청기간이 아닙니다.' in alert_text: # message
+        if not '인원이 초과' in alert_text: # message
             xpath = f'/html/body/div[1]/div[1]/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[5]/div/div/div[20]/div/div/div/div/div[3]/div/div[2]/div/div[1]/div/div/div[{index+1}]/div[4]/div/div/div'
             element = driver.find_element(By.XPATH, xpath)
             print(alert_text, element.text)
