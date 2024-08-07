@@ -34,16 +34,18 @@ def sugang(driver):
     for index, value in enumerate(buttons):
         if index == 0: continue
         value.click()
-        time.sleep(0.5)
+        time.sleep(0.8)
 
+        alert_text = '대기열'
         try:
             alert = Alert(driver)
             alert_text = alert.text
             alert.accept()
         except:
-            time.sleep(5)
+            print('alert not found')
+            time.sleep(10)
 
-        time.sleep(0.5)        
+        time.sleep(0.4)        
 
         if not '인원이 초과' in alert_text: # message
             xpath = f'/html/body/div[1]/div[1]/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[5]/div/div/div[20]/div/div/div/div/div[3]/div/div[2]/div/div[1]/div/div/div[{index+1}]/div[4]/div/div/div'
