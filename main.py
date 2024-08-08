@@ -1,7 +1,6 @@
 import WebService
 import time
 
-
 # target_code = [
 #     "1111-2222-01",
 #     "2222-3333-00",

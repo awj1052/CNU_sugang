@@ -46,7 +46,8 @@ def init(driver):
     driver.find_element(By.XPATH, '/html/body/div[3]/div[3]/div/div/div[1]/div/button').click() # 로그인
     print(get_current_time(), 'login')
     time.sleep(PAGELOAD_INTERVAL)
-    driver.find_element(By.LINK_TEXT, '수강신청 화면으로 이동').click() # 수강신청 화면 이동
+    driver.find_element(By.XPATH, '/html/body/div[1]/div[1]/div/div[1]/div/div/div[2]/div/div/div/div/div[1]/div/div/div/div/div[8]/div/div/div/div/div[1]/div/div/div/div/div[11]/div/div/div[5]/a/div')\
+        .click() # 수강신청 화면 이동
     print(get_current_time(), 'move page')
     time.sleep(PAGELOAD_INTERVAL)
 
