@@ -37,7 +37,7 @@ def sugang(driver):
 
     buttons = driver.find_elements(By.LINK_TEXT, '확정하기')
     if len(buttons) == 1:
-        exit()
+        return True
     for index, value in enumerate(buttons):
         if index == 0: continue
         value.click()
@@ -58,3 +58,4 @@ def sugang(driver):
             xpath = f'/html/body/div[1]/div[1]/div/div[1]/div/div/div[1]/div/div/div/div/div/div/div/div[1]/div/div/div/div/div[5]/div/div/div[20]/div/div/div/div/div[3]/div/div[2]/div/div[1]/div/div/div[{index+1}]/div[4]/div/div/div'
             element = driver.find_element(By.XPATH, xpath)
             print(get_current_time(), alert_text, element.text)
+    return False
